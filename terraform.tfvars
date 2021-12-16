@@ -6,6 +6,14 @@ root_auth_backends = [
   }
 ]
 
+engineering_auth_backends = [
+  {
+    type              = "kubernetes"
+    default_lease_ttl = "30m"
+    max_lease_ttl     = "1h"
+  }
+]
+
 engineering_secrets_engines = [
   {
     environment = "prod"
