@@ -1,4 +1,4 @@
-# Secrets engines for 'root' namespace
+# Auth backends for 'root' namespace
 resource "vault_auth_backend" "root_auth_backends" {
   for_each = { for auth_backend in var.root_auth_backends : auth_backend.type => auth_backend }
 
@@ -10,10 +10,10 @@ resource "vault_auth_backend" "root_auth_backends" {
   }
 }
 
-# Secrets engines for 'engineering' namespace
+# Auth backends for 'engineering' namespace
 resource "vault_auth_backend" "engineering_auth_backends" {
   provider = vault.engineering
-  
+
   for_each = { for auth_backend in var.engineering_auth_backends : auth_backend.type => auth_backend }
 
   type = each.value.type
