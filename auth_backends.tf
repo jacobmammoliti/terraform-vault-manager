@@ -23,3 +23,15 @@ resource "vault_auth_backend" "engineering_auth_backends" {
     max_lease_ttl     = each.value.max_lease_ttl
   }
 }
+
+# Roles for Kubernetes auth method in 'engineering' namespace
+resource "vault_kubernetes_auth_backend_role" "engineering_kubernetes_auth_deluge_role" {
+  provider = vault.engineering
+
+  backend                          = vault_auth_backend.engineering_auth_backends["kubernetes"].path
+  role_name                        = "deluge"
+  bound_service_account_names      = ["deluge"]
+  bound_service_account_namespaces = ["media"]
+  token_ttl                        = 3600
+  token_policies                   = ["engineering-pia-reader"]
+}

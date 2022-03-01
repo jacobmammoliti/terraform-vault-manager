@@ -1,3 +1,13 @@
+terraform {
+  cloud {
+    organization = "jacobmammoliti"
+
+    workspaces {
+      name = "terraform-vault-manager"
+    }
+  }
+}
+
 # configure a root provider
 provider "vault" {}
 
