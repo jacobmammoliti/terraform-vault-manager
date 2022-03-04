@@ -32,6 +32,12 @@ engineering_secrets_engines = [
     application = "pia"
     type        = "kv-v2"
     description = "Static secrets engine for PIA credentials in production"
+  },
+  {
+    environment = "prod"
+    application = "consul"
+    type        = "kv-v2"
+    description = "Static secrets engine for Consul entities (gossip key, etc.)"
   }
 ]
 
