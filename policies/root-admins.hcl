@@ -35,7 +35,7 @@ path "sys/audit/*" {
 
 # List ACL policies
 path "sys/policies/acl" {
-   capabilities = ["list"]
+  capabilities = ["list"]
 }
 
 # Create and manage ACL policies
@@ -70,7 +70,7 @@ path "sys/mounts/*" {
 
 # Create and manage entities and groups
 path "identity/*" {
-   capabilities = ["create", "read", "update", "delete", "list"]
+  capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 # Enable and manage replication
@@ -80,12 +80,17 @@ path "sys/replication/*" {
 
 # List namespaces
 path "sys/namespaces" {
-   capabilities = ["list"]
+  capabilities = ["list"]
 }
 
 # Manage namespaces
 path "sys/namespaces/*" {
-   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+# Allow step down
+path "sys/step-down" {
+  capabilities = ["update", "sudo"]
 }
 
 # Full access to engineering namespace
