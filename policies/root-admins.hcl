@@ -93,6 +93,11 @@ path "sys/step-down" {
   capabilities = ["update", "sudo"]
 }
 
+# Read data on number of tokens/entities
+path "sys/internal/counters/*" {
+  capabilities = ["read"]
+}
+
 # Full access to engineering namespace
 path "engineering/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
