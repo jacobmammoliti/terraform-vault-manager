@@ -11,6 +11,11 @@ engineering_auth_backends = [
     type              = "kubernetes"
     default_lease_ttl = "30m"
     max_lease_ttl     = "1h"
+  },
+  {
+    type              = "approle"
+    default_lease_ttl = "30m"
+    max_lease_ttl     = "1h"
   }
 ]
 
@@ -38,6 +43,12 @@ engineering_secrets_engines = [
     application = "consul"
     type        = "kv-v2"
     description = "Static secrets engine for Consul entities (gossip key, etc.)"
+  },
+  {
+    environment = "dev"
+    application = "database"
+    type        = "database"
+    description = "Database secrets engine for applications in development"
   }
 ]
 

@@ -6,8 +6,6 @@ resource "vault_policy" "root_admins" {
 
 # policies for 'engineering' namespace
 resource "vault_policy" "engineering_admins" {
-  provider = vault.engineering
-
   name   = "engineering-admins"
   policy = file("policies/engineering-admins.hcl")
 }
