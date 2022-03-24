@@ -4,12 +4,12 @@ resource "vault_policy" "root_admins" {
   policy = file("policies/root-admins.hcl")
 }
 
-# policies for 'engineering' namespace
 resource "vault_policy" "engineering_admins" {
   name   = "engineering-admins"
   policy = file("policies/engineering-admins.hcl")
 }
 
+# policies for 'engineering' namespace
 resource "vault_policy" "engineering_boundary" {
   provider = vault.engineering
 
